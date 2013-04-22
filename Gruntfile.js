@@ -1,7 +1,7 @@
 /*jshint camelcase:false */
 /*
  * Kickq Vitals
- * Monitor the vitals of the Kickq Queueing System.
+ * Monitors the vitals of the Kickq Queueing System.
  *
  * https://github.com/verbling/kickq-vitals
  *

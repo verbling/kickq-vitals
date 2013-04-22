@@ -1,6 +1,6 @@
 # Kickq Vitals
 
-Monitor the vitals of the [Kickq Queueing System][kickq].
+Monitors the vitals of the [Kickq Queueing System][kickq].
 
 ## Install
 
@@ -63,18 +63,7 @@ The event callback will contain an Object Literal with the following structure:
     app: 0 // {number} kickq application errors
   },
 
-  // states measure all jobs
-  states: {
-    queued: 0,
-    delayed: 0,
-    processing: 0,
-    retry: 0,
-    ghost: 0,
-    success: 0,
-    fail: 0
-  },
-
-  // jobStats measure only the jobs created during the period.
+  // Measures only the jobs created during the period.
   jobStats: {
     created: 0,
     processed: 0,
