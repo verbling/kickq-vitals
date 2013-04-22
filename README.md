@@ -22,35 +22,14 @@ npm install kickq --save-dev
 
 ## The API
 
-#### Function `listen(fn, optInterval)`
-**Argument**: `fn` **Type**: `Function(Object)` **Default**: **Required!**
-**Argument**: `optInterval` **Type**: `Number` **Default**: `300000` milliseconds (5')
+### Function `listen(fn, optInterval)`
+
+* **Argument**: `fn` **Type**: `Function(Object)` **Default**: **Required!**
+* **Argument**: `optInterval` **Type**: `Number` **Default**: `300000` milliseconds (5')
 
 By invoking the `listen()` function Kickq Vitals starts collecting data and invokes the callback in the defined or default interval.
 
-### Function `stop()`
-
-Stop Kickq Vitals from collecting data.
-
-### Example
-
-```js
-var vitals = require('kickq-vitals');
-
-// listen for vitals every 5 minutes
-vitals.listen(fn, 300000);
-
-function fn(vitals) {
-  console.log('vitals: ', vitals);
-}
-
-/* ... */
-
-// stop listening
-vitals.stop();
-```
-
-### vitals.listen() Callback Data Object
+#### vitals.listen() Callback Data Object
 
 The event callback will contain an Object Literal with the following structure:
 
@@ -86,6 +65,28 @@ The event callback will contain an Object Literal with the following structure:
     }
   }
 }
+```
+
+### Function `stop()`
+
+Stop Kickq Vitals from collecting data.
+
+### Example
+
+```js
+var vitals = require('kickq-vitals');
+
+// listen for vitals every 5 minutes
+vitals.listen(fn, 300000);
+
+function fn(vitals) {
+  console.log('vitals: ', vitals);
+}
+
+/* ... */
+
+// stop listening
+vitals.stop();
 ```
 
 
