@@ -109,4 +109,4 @@ Licensed under the [MIT License](LICENSE-MIT)
 [grunt-replace]: https://github.com/erickrdch/grunt-string-replace "Grunt string replace"
 [grunt-S3]: https://github.com/pifantastic/grunt-s3 "grunt-s3 task"
 [thanpolas]: https://github.com/thanpolas "Thanasis Polychronakis"
-[kickq]: https://github.com/verbling-kickq "Kickq Queueing System"
+[kickq]: https://github.com/verbling/kickq "Kickq Queueing System"
