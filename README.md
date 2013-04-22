@@ -5,7 +5,7 @@ Monitors the vitals of the [Kickq Queueing System][kickq].
 ## Install
 
 ```shell
-npm install kickq --save-dev
+npm install kickq-vitals --save
 ```
 
 ## What Vitals are Monitored
