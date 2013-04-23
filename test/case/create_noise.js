@@ -15,7 +15,7 @@ var vitals = require('../../');
 
 vitals.listen(function(vitals){
   console.log('vitals fired:\n', vitals);
-}, 2000);
+}, 11000);
 
 var jobs = [
   'zit-zot-pop',
@@ -32,13 +32,20 @@ function getRand(low, high) {
 setInterval(function(){
   var randIndex = getRand(0, 3);
   kickq.create(jobs[randIndex]);
-},600);
+}, 40);
 
 jobs.forEach(function(job){
-  kickq.process(job, function(jobItem, data, cb){
+  kickq.process(job, {concurrentJobs: 20}, function(jobItem, data, cb){
     var outcome = (40 > getRand(0, 100) ? null : 'failed');
     // console.log('outcome: ', outcome, jobItem.id, jobItem.name);
-    setTimeout(function(){cb(outcome);}, getRand(100, 600));
+
+    // create a few ghosts
+    var beGhost = 1 > getRand(0, 100);
+    if (beGhost) {
+      return;
+    }
+
+    setTimeout(function(){cb(outcome);}, getRand(5, 30));
   });
 });
 
