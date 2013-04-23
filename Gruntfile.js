@@ -23,6 +23,8 @@ if ( 'true' === process.env.TRAVIS) {
 
 module.exports = function( grunt ) {
 
+  grunt.loadNpmTasks('grunt-release');
+
   //
   // Grunt configuration:
   //
