@@ -1,7 +1,7 @@
 {
   "name": "kickq-vitals",
   "description": "Monitors the vitals of the Kickq Queueing System",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "homepage": "https://github.com/verbling/kickq-vitals",
   "author": "Verbling",
   "repository": {
@@ -37,7 +37,10 @@
   "peerDependencies": {
     "kickq": "~0.0.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-release": "~0.3.3"
+  },
   "keywords": [
     "queue",
     "jobs",
