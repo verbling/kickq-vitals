@@ -27,7 +27,7 @@ npm install kickq-vitals --save
 * **Argument**: `fn` **Type**: `Function(Object)` **Default**: **Required!**
 * **Argument**: `optInterval` **Type**: `Number` **Default**: `300000` milliseconds (5')
 
-By invoking the `listen()` function Kickq Vitals starts collecting data and invokes the callback in the defined or default interval.
+By invoking the `listen()` function Kickq Vitals starts collecting data and invokes the callback in the defined or default interval. The interval time affects any listeners that hook on `listen()`, the latest listener with an interval value overwrites all.
 
 #### vitals.listen() Callback Data Object
 
@@ -67,9 +67,9 @@ The event callback will contain an Object Literal with the following structure:
 }
 ```
 
-### Function `stop()`
+### Function `stop(optCb)`
 
-Stop Kickq Vitals from collecting data.
+Stop Kickq Vitals from collecting data. Optionally define a specific function instead of all the listeners.
 
 ### Example
 

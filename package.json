@@ -23,7 +23,7 @@
       "url": "http://thanpol.as"
     }
   ],
-  "main": "lib/kickq.vitals.js",
+  "main": "lib/kickq-vitals.js",
   "engines": {
     "node": ">= 0.8.0"
   },
