@@ -139,8 +139,6 @@ The vitals.listen() will provide as an argument an Object Literal with the follo
   }
 }
 ```
-
-
 ## Authors
 
 * [@thanpolas][thanpolas]

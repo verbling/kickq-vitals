@@ -37,7 +37,7 @@
     "slug": "~0.2.2"
   },
   "peerDependencies": {
-    "kickq": "~0.0.5"
+    "kickq": "~0.0.6"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
