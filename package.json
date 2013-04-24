@@ -32,7 +32,8 @@
   },
   "dependencies": {
     "underscore": "~1.4.4",
-    "when": "~1.8.1"
+    "when": "~1.8.1",
+    "collections": "~0.1.17"
   },
   "peerDependencies": {
     "kickq": "~0.0.5"

@@ -8,17 +8,6 @@ Monitors the vitals of the [Kickq Queueing System][kickq].
 npm install kickq-vitals --save
 ```
 
-## What Vitals are Monitored
-
-*Kickq Vitals* will emit events about the following vitals:
-
-* Average processing time. (per job and total)
-* Errors occured.
-* New Jobs created.
-* Jobs queued to be processed. (per job and total)
-* Jobs completed successfully.
-* Jobs completed with error.
-* Jobs timing out and becoming ghosts.
 
 ## The API
 
@@ -29,9 +18,76 @@ npm install kickq-vitals --save
 
 By invoking the `listen()` function Kickq Vitals starts collecting data and invokes the callback in the defined or default interval. The interval time affects any listeners that hook on `listen()`, the latest listener with an interval value overwrites all.
 
-#### vitals.listen() Callback Data Object
+### Function `stop(optCb)`
 
-The event callback will contain an Object Literal with the following structure:
+Stop Kickq Vitals from collecting data. Optionally define a specific function instead of all the listeners.
+
+## Configuration
+
+kickq-vitals can be configured using the `config()` function, adding an Object with key-value pairs or a single key, value pair:
+
+```js
+vitals.config({key: value, otherKey: otherValue});
+
+vitals.config(key, value);
+```
+
+### Configuration Options
+
+#### Option :: `logfile`
+
+**Type**: `boolean` **Default**: `false`
+
+Log vitals to files.
+
+
+#### Option :: `logpath`
+
+**Type**: `string` **Default**: `./log`
+
+kickq-vitals requires a folder to start saving the logfiles.
+
+## Examples
+
+Start monitoring vitals using a callback
+
+```js
+var vitals = require('kickq-vitals');
+
+// listen for vitals every 5 minutes
+vitals.listen(fn, 300000);
+
+function fn(vitals) {
+  console.log('vitals: ', vitals);
+}
+
+/* ... */
+
+// stop listening
+vitals.stop();
+```
+
+Start monitoring vitals using a logfile
+
+```js
+var vitals = require('kickq-vitals');
+
+// define the log folder
+vitals.config('logpath', './logs');
+
+// start logging to file
+vitals.config('logfile', true);
+
+/* ... */
+
+// stop logging to file
+vitals.config('logfile', false);
+```
+
+
+## What Vitals are Monitored
+
+The vitals.listen() will provide as an argument an Object Literal with the following structure:
 
 ```js
 {
@@ -65,28 +121,6 @@ The event callback will contain an Object Literal with the following structure:
     }
   }
 }
-```
-
-### Function `stop(optCb)`
-
-Stop Kickq Vitals from collecting data. Optionally define a specific function instead of all the listeners.
-
-### Example
-
-```js
-var vitals = require('kickq-vitals');
-
-// listen for vitals every 5 minutes
-vitals.listen(fn, 300000);
-
-function fn(vitals) {
-  console.log('vitals: ', vitals);
-}
-
-/* ... */
-
-// stop listening
-vitals.stop();
 ```
 
 

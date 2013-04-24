@@ -8,14 +8,14 @@ var kickq = require('kickq');
 // kickq.config('debug', true);
 kickq.config('loggerConsole', true);
 
-// kickq.logg.getLogger('kickq-vitals').setLogLevel(0);
-
+// kickq.logg.getLogger('kickq-vitals').setLogLevel(kickq.logg.Level.FINE);
+kickq.logg.getLogger('kickq-vitals').setLogLevel(kickq.logg.Level.FINEST);
 
 var vitals = require('../../');
 
 vitals.listen(function(vitals){
-  console.log('vitals fired:\n', vitals);
-}, 11000);
+  console.log('vitals fired! Created: ', vitals.jobStats.created);
+}, 1000);
 
 var jobs = [
   'zit-zot-pop',
@@ -48,4 +48,10 @@ jobs.forEach(function(job){
     setTimeout(function(){cb(outcome);}, getRand(5, 30));
   });
 });
+
+
+setTimeout(function(){
+  console.log('STOPING STOPING');
+  vitals.stop();
+}, 2800);
 
