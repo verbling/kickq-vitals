@@ -34,18 +34,35 @@ vitals.config(key, value);
 
 ### Configuration Options
 
-#### Option :: `logfile`
+#### Option :: `logToFile`
 
 **Type**: `boolean` **Default**: `false`
 
 Log vitals to files.
-
 
 #### Option :: `logpath`
 
 **Type**: `string` **Default**: `./log`
 
 kickq-vitals requires a folder to start saving the logfiles.
+
+#### Option :: `logFilename`
+
+**Type**: `string` **Default**: `kickq-vitals.log`
+
+The filename to store the main vitals.
+
+#### Option :: `logSaveQueues`
+
+**Type**: `boolean` **Default**: `boolean`
+
+Wether to save vitals per queue.
+
+#### Option :: `logQueuePrefix`
+
+**Type**: `string` **Default**: `queue-`
+
+Prefix to use when storing queue log files.
 
 ## Examples
 
@@ -76,12 +93,12 @@ var vitals = require('kickq-vitals');
 vitals.config('logpath', './logs');
 
 // start logging to file
-vitals.config('logfile', true);
+vitals.config('logToFile', true);
 
 /* ... */
 
 // stop logging to file
-vitals.config('logfile', false);
+vitals.config('logToFile', false);
 ```
 
 
@@ -129,6 +146,9 @@ The vitals.listen() will provide as an argument an Object Literal with the follo
 * [@thanpolas][thanpolas]
 
 ## Release History
+- **v0.0.3**, *24 Apr 2013*
+  - Added option to save vitals to file.
+  - Bug fixes, better handling of stopping.
 - **v0.0.1**, *23 Apr 2013*
   - Big Bang
 
