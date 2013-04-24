@@ -8,10 +8,14 @@ var kickq = require('kickq');
 // kickq.config('debug', true);
 kickq.config('loggerConsole', true);
 
-// kickq.logg.getLogger('kickq-vitals').setLogLevel(kickq.logg.Level.FINE);
-kickq.logg.getLogger('kickq-vitals').setLogLevel(kickq.logg.Level.FINEST);
+kickq.logg.getLogger('kickq-vitals').setLogLevel(kickq.logg.Level.FINE);
+// kickq.logg.getLogger('kickq-vitalls').setLogLevel(kickq.logg.Level.FINEST);
 
 var vitals = require('../../');
+
+vitals.config('logToFile', true);
+
+
 
 vitals.listen(function(vitals){
   console.log('vitals fired! Created: ', vitals.jobStats.created);
@@ -27,7 +31,6 @@ var jobs = [
 function getRand(low, high) {
   return Math.floor(Math.random() * (high - low + 1)) + low;
 }
-
 
 setInterval(function(){
   var randIndex = getRand(0, 3);
